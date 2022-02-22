@@ -46,7 +46,7 @@ try {
   } else {
     console.log("ERROR: Invalid Input");
   }
-  console.log();
+  console.log("\nDone.");
 }
 finally { "" }
 
