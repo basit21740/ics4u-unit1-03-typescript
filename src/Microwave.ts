@@ -8,50 +8,44 @@
 
 import promptSync from "prompt-sync"
 const prompt = promptSync()
-// Constants
-const pizzaCookingTime = 0.75
-const subCookingTime = 1
-const soupCookingTime = 1.75
+
+
+const subHeatingTime = 60.0
+const soupHeatingTime = 105.0
+const pizzaHeatingTime = 45.0
+
+const userInput = prompt("What food item would you like to heat up? (soup, sub or pizza): ");
+
+// Quantity
+
+const quantityInput = prompt("How many items would you like to heat up? ")
+
+
+// empty Check
 try {
-    // Input
-    console.log("Enter the food you would like cooked (pizza, sub or soup: ", function saveInput(foodChosen : any) {
-        var foodChosenUpperCase = foodChosen.toUpperCase()
-        console.log();
-        console.log("Enter how many items you would like to be cooked: ", function saveInput(numberOfItems: any) {
-            console.log()
-            // Process and outputs
-            if (numberOfItems <= 3 && numberOfItems >= 1) {
-                if (foodChosenUpperCase == "PIZZA") {
-                    // Output time for cooking pizzas
-                    var cookingTime0 = pizzaCookingTime
-                        + (0.5 * pizzaCookingTime * (numberOfItems - 1))
-                    console.log("The food will be cooked in", cookingTime0, "minutes.")
-                }
-                else if (foodChosenUpperCase == "SUB") {
-                    // Output time for cooking subs
-                    var cookingTime1 = subCookingTime
-                        + (0.5 * subCookingTime * (numberOfItems - 1))
-                    console.log("The food will be cooked in", cookingTime1, "minutes.")
-                }
-                else if (foodChosenUpperCase == "SOUP") {
-                    // Output time for cooking cups of soup
-                    var cookingTime2 = soupCookingTime
-                        + (0.5 * soupCookingTime * (numberOfItems - 1))
-                    console.log("The food will be cooked in", cookingTime2, "minutes.")
-                }
-                else {
-                    // Output if input is not one of the three foods
-                    console.log("ERROR: Invalid Input")
-                }
-            }
-            else {
-                console.log("ERROR: Invalid Input")
-            }
-            console.log()
-        })
-    })
-    // Catches and tells the user that an improper input was entered
+  if (quantityInput  <= 3 && quantityInput  >= 1) {
+    if (userInput == "pizza") {
+      // Output time for cooking pizzas
+      const cookingTime0 = pizzaHeatingTime
+        + (0.5 * pizzaHeatingTime * (quantityInput - 1));
+      console.log("The food will be cooked in", cookingTime0, "seconds.");
+    } else if (userInput == "sub") {
+      // Output time for cooking subs
+      const cookingTime1 = subHeatingTime
+        + (0.5 * subHeatingTime * (quantityInput - 1));
+      console.log("The food will be cooked in", cookingTime1, "seconds.");
+    } else if (userInput == "soup") {
+      // Output time for cooking cups of soup
+      const cookingTime2 = soupHeatingTime
+        + (0.5 * soupHeatingTime * (quantityInput - 1));
+      console.log("The food will be cooked in", cookingTime2, "seconds.");
+    } else {
+      // Output if input is not one of the three foods
+      console.log("ERROR: Invalid Input");
+    }
+  } else {
+    console.log("ERROR: Invalid Input");
+  }
+  console.log();
 }
-catch (err) {
-    console.log("ERROR: Invalid Input")
-}
+finally { "" }
