@@ -18,8 +18,8 @@ const userInput = prompt("What food item would you like to heat up? (soup, sub o
 
 // Quantity
 
-const quantityInput = prompt("How many items would you like to heat up? ")
-
+const quantityInputString = prompt("How many items would you like to heat up? ")
+const quantityInput = parseFloat(quantityInputString);
 
 // empty Check
 try {
@@ -49,3 +49,4 @@ try {
   console.log();
 }
 finally { "" }
+
